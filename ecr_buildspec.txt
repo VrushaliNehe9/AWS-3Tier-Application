@@ -1,3 +1,6 @@
+# Error received: error parsing reference is not a valid repository/tag: invalid reference format
+# Hence build not successful
+
 version: 0.2
 env:
   parameter-store:
