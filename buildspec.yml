@@ -1,0 +1,34 @@
+version: 0.2
+env:
+  parameter-store:
+    AWS_ACCOUNT_ID: "/three_tier_app/AWS_ACCOUNT_ID"
+    IMAGE_REPO_NAME: "/three_tier_app/IMAGE_REPO_NAME"
+    
+phases:
+  install:
+    runtime-versions:
+      runtime: 3.11
+      
+    # steps:
+  pre_build:
+    commands:
+      - echo "Installing dependencies"
+      - pip install -r requirements.txt
+      - echo "Logging in to Amazon ECR..."
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com
+    # steps:
+  build:
+    commands:
+      - echo "Building Docker Image"
+      - docker build -t $IMAGE_REPO_NAME:latest .
+      # docker build -t "Path to ecr repo"
+      - docker tag $IMAGE_REPO_NAME:latest $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_REPO_NAME:latest
+      - echo Pushing the Docker image...
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_REPO_NAME:latest
+    # steps:
+  post_build:
+    commands:
+      - echo "Build completed successfully!"
+artifacts:
+  files:
+    - '**/*'
