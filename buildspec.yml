@@ -7,7 +7,7 @@ env:
 phases:
   install:
     runtime-versions:
-      runtime: 3.8
+      python: 3.8
       
   pre_build:
     commands:
