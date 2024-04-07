@@ -19,10 +19,10 @@ phases:
   build:
     commands:
       - echo "Building Docker Image"
-      - docker build -t threetierapp .
-      - docker tag threetierapp $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_REPO_NAME
+      - docker build -t three_tier_app .
+      - docker tag three_tier_app:latest 533267045308.dkr.ecr.us-east-1.amazonaws.com/three_tier_app:latest
       - echo "Pushing the Docker image"
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_REPO_NAME
+      - docker push 533267045308.dkr.ecr.us-east-1.amazonaws.com/three_tier_app:latest
       
   post_build:
     commands:
