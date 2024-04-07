@@ -25,21 +25,10 @@ phases:
       - docker tag $IMAGE_REPO_NAME:latest $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_REPO_NAME:latest
       - echo Pushing the Docker image...
       - docker push $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_REPO_NAME:latest
-
     # steps:
   post_build:
     commands:
       - echo "Build completed successfully!"
-      - command
-    # steps:
-reports:
-  report-group-name-or-arn:
-    files:
-      - location
-      - location
-    base-directory: location
-    discard-paths: no | yes
-    file-format: report-format
 artifacts:
   files:
     - '**/*'
