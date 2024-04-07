@@ -19,10 +19,10 @@ phases:
   build:
     commands:
       - echo "Building Docker Image"
-      - docker build -t $IMAGE_REPO_NAME/app:v1 .
-      - docker tag $IMAGE_REPO_NAME/app:v1 $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_REPO_NAME/app:v1
+      - docker build -t $IMAGE_REPO_NAME:v1 .
+      - docker tag $IMAGE_REPO_NAME:v1 $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_REPO_NAME:v1
       - echo "Pushing the Docker image"
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_REPO_NAME/app:v1
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_REPO_NAME:v1
       
   post_build:
     commands:
