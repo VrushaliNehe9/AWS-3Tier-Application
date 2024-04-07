@@ -1,8 +1,8 @@
 version: 0.2
 env:
   parameter-store:
-    AWS_ACCOUNT_ID: "value"
-    IMAGE_REPO_NAME: ""
+    AWS_ACCOUNT_ID: "/three_tier_app/AWS_ACCOUNT_ID"
+    IMAGE_REPO_NAME: "/three_tier_app/IMAGE_REPO_NAME"
     
 phases:
   install:
