@@ -1,0 +1,43 @@
+version: 0.2
+env:
+  parameter-store:
+    key: "value"
+    key: "value"
+    
+phases:
+  install:
+    runtime-versions:
+      runtime: 3.11
+      
+    # steps:
+  pre_build:
+    commands:
+      - echo "Installing dependencies"
+      - pip install -r requirements.txt
+    # steps:
+  build:
+    commands:
+      - echo "Building Docker Image"
+      # Add ECR login id password and command
+      - echo "$ECR_PASSWORD" | docker login -u "$ECR_USERNAME" --password-stdin "$ECR_URL"
+      # docker build -t "Path to ecr repo"
+      - docker build -t ""
+      - docker push "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/simple-python-flask-app:latest"
+
+    # steps:
+  post_build:
+    commands:
+      - echo "Build completed successfully!"
+      - command
+    # steps:
+reports:
+  report-group-name-or-arn:
+    files:
+      - location
+      - location
+    base-directory: location
+    discard-paths: no | yes
+    file-format: report-format
+artifacts:
+  files:
+    - '**/*'
