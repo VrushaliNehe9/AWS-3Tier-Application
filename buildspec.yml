@@ -19,8 +19,8 @@ phases:
       - echo "Building Docker image..."
       - echo "$DOCKER_REGISTRY_PASSWORD" | docker login -u "vrushalinehe9" --password-stdin
       - docker build -t "simple-python-flask-app:latest" .
-      - docker tag "simple-python-flask-app:latest" "https://hub.docker.com/repositories/vrushalinehe9/simple-python-flask-app:latest"
-      - docker push "https://hub.docker.com/repositories/vrushalinehe9/simple-python-flask-app:latest"
+      - docker tag "simple-python-flask-app:latest" "https://hub.docker.com/vrushalinehe9/simple-python-flask-app:latest"
+      - docker push "https://hub.docker.com/vrushalinehe9/simple-python-flask-app:latest"
   post_build:
     commands:
       - echo "Build completed successfully!"
