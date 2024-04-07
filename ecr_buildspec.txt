@@ -17,15 +17,15 @@ phases:
       - echo "Installing dependencies"
       - pip install -r requirements.txt
       - echo "Logging in to Amazon ECR"
-      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 533267045308.dkr.ecr.us-east-1.amazonaws.com
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com
 
   build:
     commands:
       - echo "Building Docker Image"
       - docker build -t demoapp .
-      - docker tag demoapp:latest 533267045308.dkr.ecr.us-east-1.amazonaws.com/three_tier_app:latest
+      - docker tag $IMAGE_REPO_NAME:latest $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_REPO_NAME:latest
       - echo "Pushing the Docker image"
-      - docker push 533267045308.dkr.ecr.us-east-1.amazonaws.com/three_tier_app:latest
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/$IMAGE_REPO_NAME:latest
       
   post_build:
     commands:
