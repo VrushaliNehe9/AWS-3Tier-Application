@@ -19,8 +19,8 @@ phases:
   build:
     commands:
       - echo "Building Docker Image"
-      - docker build -t three_tier_app .
-      - docker tag three_tier_app:latest 533267045308.dkr.ecr.us-east-1.amazonaws.com/three_tier_app:latest
+      - docker build -t demoapp .
+      - docker tag demoapp:latest 533267045308.dkr.ecr.us-east-1.amazonaws.com/three_tier_app:latest
       - echo "Pushing the Docker image"
       - docker push 533267045308.dkr.ecr.us-east-1.amazonaws.com/three_tier_app:latest
       
