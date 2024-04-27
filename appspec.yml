@@ -3,7 +3,7 @@ Resources:
   - TargetService:
       Type: AWS::ECS::Service
       Properties:
-        TaskDefinition: "arn:aws:ecs:us-east-1:533267045308:task-definition/iamops-backend-task:1"        
+        TaskDefinition: "arn:aws:ecs:us-east-1:533267045308:task-definition/test-backend-task:1"        
         LoadBalancerInfo:
           ContainerName: "backend"
           ContainerPort: 5000
