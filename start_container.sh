@@ -5,4 +5,4 @@ set -e
 docker pull vrushalinehe9/backend
 
 # Run the Docker image as a container
-docker run imageid
+docker run -p 5000:5000 imageid
