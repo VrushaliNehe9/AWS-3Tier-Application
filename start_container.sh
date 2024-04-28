@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-# Pull the Docker image from Docker Hub
-docker pull imageid
+# Pull the Docker image from Docker Hub (Only after loggin to docker hub)
+docker pull vrushalinehe9/backend
 
 # Run the Docker image as a container
-docker run
+docker run imageid
