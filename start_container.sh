@@ -2,7 +2,7 @@
 set -e
 
 # Pull the Docker image from Docker Hub (Only after loggin to docker hub)
-docker pull vrushalinehe9/backend
+docker pull vrushalinehe9/backend:latest
 
 # Run the Docker image as a container
-docker run -p 5000:5000 imageid
+docker run -p 5000:5000 vrushalinehe9/backend
